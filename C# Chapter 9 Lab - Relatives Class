@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab9
+{
+    class Relative : IComparable
+    {
+        public string name { get; set; }
+        public string relationship { get; set; }
+        public int birthMonth { get; set; }
+        public int birthDay { get; set; }
+        public int birthYear { get; set; }
+
+        public Relative(string n, string r, int bM, int bD, int bY)
+        {
+            this.name = n;
+            this.relationship = r;
+            this.birthMonth = bM;
+            this.birthDay = bD;
+            this.birthYear = bY;
+        }
+
+        
+
+        int IComparable.CompareTo(object o)
+        {
+            Relative temp = (Relative)o;
+            return String.Compare(this.name, temp.name);
+        }
+    }
+}
