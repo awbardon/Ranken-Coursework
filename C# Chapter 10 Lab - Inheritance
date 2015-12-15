@@ -1,0 +1,244 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab2
+{
+    class Photo
+    {
+        private int photoWidth;
+        private int photoHeight;
+        protected double photoPrice;
+
+        public Photo()
+        {
+
+        }
+
+        public Photo(int w, int h)
+        {
+            this.photoWidth = w;
+            this.photoHeight = h;
+            if (this.photoWidth == 8 && this.photoHeight == 10)
+                this.photoPrice = 3.99;
+            else if (this.photoWidth == 10 && this.photoHeight == 12)
+                this.photoPrice = 5.99;
+            else
+                this.photoPrice = 9.99;
+        }
+
+        public int PhotoWidth
+        {
+            get
+            {
+                return photoWidth;
+            }
+            set
+            {
+                this.photoWidth = value;
+                if (this.photoWidth == 8 && this.photoHeight == 10)
+                    this.photoPrice = 3.99;
+                else if (this.photoWidth == 10 && this.photoHeight == 12)
+                    this.photoPrice = 5.99;
+                else
+                    this.photoPrice = 9.99;
+            }
+        }
+
+        public int PhotoHeight
+        {
+            get
+            {
+                return photoHeight;
+            }
+            set
+            {
+                this.photoHeight = value;
+                if (this.photoWidth == 8 && this.photoHeight == 10)
+                    this.photoPrice = 3.99;
+                else if (this.photoWidth == 10 && this.photoHeight == 12)
+                    this.photoPrice = 5.99;
+                else
+                    this.photoPrice = 9.99;
+            }
+        }
+
+        public double PhotoPrice
+        {
+            get
+            {
+                return photoPrice;
+            }
+        }
+
+        public override string ToString()
+        {
+            string s;
+            s = "Type: " + this.GetType() + "    Photo Width: " + this.PhotoWidth + "    Photo height: " + this.PhotoHeight + "    Photo Price: " + this.PhotoPrice;
+            return s;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab2
+{
+    class FramedPhoto : Photo
+    {
+        private string photoMaterial;
+        private string photoStyle;
+
+        public FramedPhoto()
+        {
+
+        }
+
+        public FramedPhoto(int w, int h, string m, string s)
+        {
+            this.PhotoWidth = w;
+            this.PhotoHeight = h;
+            if (this.PhotoWidth == 8 && this.PhotoHeight == 10)
+                this.photoPrice = 3.99;
+            else if (this.PhotoWidth == 10 && this.PhotoHeight == 12)
+                this.photoPrice = 5.99;
+            else
+                this.photoPrice = 9.99;
+            this.photoMaterial = m;
+            this.photoStyle = s;
+        }
+
+        public override string ToString()
+        {
+            string s;
+            s = "Type: " + this.GetType() + "    Photo Width: " + this.PhotoWidth + "    Photo height: " + this.PhotoHeight + "    Photo Price: " + (this.PhotoPrice + 25) + "    Frame Material: " + this.photoMaterial + "    Frame Style: " + this.photoStyle;
+            return s;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab2
+{
+    class MattedPhoto : Photo
+    {
+        private string photoColor;
+
+        public MattedPhoto()
+        {
+
+        }
+
+        public MattedPhoto(int w, int h, string c)
+        {
+            this.PhotoWidth = w;
+            this.PhotoHeight = h;
+            if (this.PhotoWidth == 8 && this.PhotoHeight == 10)
+                this.photoPrice = 3.99;
+            else if (this.PhotoWidth == 10 && this.PhotoHeight == 12)
+                this.photoPrice = 5.99;
+            else
+                this.photoPrice = 9.99;
+            this.photoColor = c;
+        }
+
+        public override string ToString()
+        {
+            string s;
+            s = "Type: " + this.GetType() + "    Photo Width: " + this.PhotoWidth + "    Photo height: " + this.PhotoHeight + "    Photo Price: " + (this.PhotoPrice + 10) + "    Photo Color: " + this.photoColor;
+            return s;
+        }
+        
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab2
+{
+    class PhotoDemo
+    {
+        static void Main(string[] args)
+        {
+            Photo[] array1 = new Photo[3];
+            MattedPhoto[] array2 = new MattedPhoto[3];
+            FramedPhoto[] array3 = new FramedPhoto[3];
+            for (int x = 0; x< array1.Length; ++x)
+            {
+                array1[x] = new Photo();
+                array2[x] = new MattedPhoto();
+                array3[x] = new FramedPhoto();
+            }
+
+            for (int x = 0; x < array1.Length; ++x)
+            {
+                if (x == 0)
+                {
+                    array1[x] = new Photo(8, 10);
+                    array2[x] = new MattedPhoto(8, 10, "Blue");
+                    array3[x] = new FramedPhoto(8, 10, "Aluminum", "Contemporary");
+                }
+                if (x == 1)
+                {
+                    array1[x] = new Photo(10, 12);
+                    array2[x] = new MattedPhoto(10, 12, "Red");
+                    array3[x] = new FramedPhoto(10, 12, "Oak" , "Classic");
+                }
+                if (x == 2)
+                {
+                    array1[x] = new Photo(7, 10);
+                    array2[x] = new MattedPhoto(7, 10, "Green");
+                    array3[x] = new FramedPhoto(7, 10, "Mohogany", "Retro");
+                }
+            }
+
+            for (int x = 0; x< array1.Length; ++x)
+            {
+                System.Console.WriteLine(array1[x].ToString());
+                System.Console.WriteLine(array2[x].ToString());
+                System.Console.WriteLine(array3[x].ToString());
+            }
+        }
+    }
+}
