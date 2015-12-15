@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] itemName = { "Enchilada", "Burrito", "Taco", "Tostada"};
+            int[] itemNum = { 20, 23, 25, 31 };
+            double[] prices = { 2.95, 1.95, 2.25, 3.1 };
+            int choiceNum;
+            System.Console.Write("Enter item number or item description: ");
+            string choice = System.Console.ReadLine();
+            if (choice.Length < 4)
+            {
+                choiceNum = int.Parse(choice);
+                System.Console.WriteLine(GetDetails(choiceNum));
+            }
+            else
+                System.Console.WriteLine(GetDetails(choice));
+        }
+
+        static string GetDetails(int number)
+        {
+            if (number == 20)
+                return "Enchilada: $2.95";
+            else if (number == 23)
+                return "Burrito: $1.95";
+            else if (number == 25)
+                return "Taco: $2.25";
+            else if (number == 31)
+                return "Tostada: $3.10";
+            else
+                return "Item not found...";
+        }
+
+        static string GetDetails(string name)
+        {
+            if (name.Equals("Enchilada", StringComparison.OrdinalIgnoreCase))
+                return "Item #20: $2.95";
+            if (name.Equals("Burrito", StringComparison.OrdinalIgnoreCase))
+                return "Item #23: $1.95";
+            if (name.Equals("Taco", StringComparison.OrdinalIgnoreCase))
+                return "Item #25: $2.25";
+            if (name.Equals("Tostada", StringComparison.OrdinalIgnoreCase))
+                return "Item #31: $3.10";
+            else
+                return "Item not found...";
+        }
+    }
+}
