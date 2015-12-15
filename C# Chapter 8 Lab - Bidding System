@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            System.Console.Write("Enter bid: ");
+            string s = System.Console.ReadLine();
+            int intBid = 0;
+            double dubBid;
+            if (int.TryParse(s, out intBid))
+                processBid(intBid);
+            else if (double.TryParse(s, out dubBid))
+                processBid(dubBid);
+            else
+                processBid(s);
+        }
+
+        private static void processBid(int bid)
+        {
+            if (bid >= 10)
+                System.Console.WriteLine("Your bid of $" + bid + " meets the $10 minimum.");
+            else
+                System.Console.WriteLine("Your bid of $" + bid + " is below the $10 minimum.");
+        }
+        private static void processBid(double bid)
+        {
+            if (bid >= 10)
+                System.Console.WriteLine("Your bid of $" + bid + " meets the $10 minimum.");
+            else
+                System.Console.WriteLine("Your bid of $" + bid + " is below the $10 minimum.");
+        }
+        private static void processBid(string bid)
+        {
+            double dubBid;
+            string lastWord = bid.Split(' ').Last();
+            char firstChar = bid[0];
+            if (firstChar == '$')
+            {
+                bid = bid.Trim('$');
+                dubBid = double.Parse(bid);
+                if (dubBid >= 10)
+                    System.Console.WriteLine("Your bid of $" + dubBid + " meets the $10 minimum.");
+                else
+                    System.Console.WriteLine("Your bid of $" + dubBid + " is below the $10 minimum.");
+            }
+            else if (lastWord == "dollars" || lastWord == "Dollars")
+            {
+                char[] MyChar = { 'd', 'o', 'a', 'l', 'r', 's', ' ' };
+                bid = bid.TrimEnd(MyChar);
+                dubBid = double.Parse(bid);
+                if (dubBid >= 10)
+                    System.Console.WriteLine("Your bid of $" + dubBid + " meets the $10 minimum.");
+                else
+                    System.Console.WriteLine("Your bid of $" + dubBid + " is below the $10 minimum.");
+            }
+            else
+                System.Console.WriteLine("INVALID INPUT");
+        }
+    }
+}
