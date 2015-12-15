@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab9
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int drawers = NumberOfDrawers();
+            char wood = TypeOfWood();
+            double totalPrice = CalcCost(drawers, wood);
+            DisplayCost(drawers, wood, totalPrice);
+        }
+
+        static int NumberOfDrawers()
+        {
+            System.Console.Write("Please enter desired number of drawers: ");
+            return int.Parse(System.Console.ReadLine());
+        }
+
+        static char TypeOfWood()
+        {
+            System.Console.Write("Please enter desired type of wood. ('m' = mohogany, 'o' = oak, 'p' = pine): ");
+            return char.Parse(System.Console.ReadLine());
+        }
+
+        static double CalcCost(int numDrawers, char typeWood)
+        {
+            double total = 0;
+            total += (30 * numDrawers);
+            if (typeWood == 'p' || typeWood == 'P')
+                total += 100;
+            else if (typeWood == 'o' || typeWood == 'O')
+                total += 140;
+            else
+                total += 180;
+            return total;
+        }
+
+        static void DisplayCost(int numDrawers, char typeWood, double total)
+        {
+            if (typeWood == 'p' || typeWood == 'P')
+                System.Console.WriteLine("Type of wood: Pine");
+            else if (typeWood == 'o' || typeWood == 'O')
+                System.Console.WriteLine("Type of wood: Oak");
+            else
+                System.Console.WriteLine("Type of wood: Mahogany");
+
+            System.Console.WriteLine("Number of drawers: " + numDrawers);
+            System.Console.WriteLine("Total price: " + total.ToString("c"));
+        }
+    }
+}
