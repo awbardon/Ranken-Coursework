@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            System.Console.WriteLine("Please enter your high school GPA: ");
+            double gpa = double.Parse(System.Console.ReadLine());
+            System.Console.WriteLine("Please enter your admission test score: ");
+            double testScore = double.Parse(System.Console.ReadLine());
+            System.Console.WriteLine(DisplayAcceptance(gpa, testScore));
+        }
+
+        static string DisplayAcceptance(double gpa, double testScore)
+        {
+            if (gpa >= 3.0 && testScore >= 60)
+                return ("Accept");
+            else if (gpa < 3.0 && testScore >= 80)
+                return ("Accept");
+            else
+                return ("Reject");
+        }
+    }
+}
