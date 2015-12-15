@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab8
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random RNG = new Random();
+            int randomNumber;
+            randomNumber = RNG.Next(1, 4);
+            System.Console.WriteLine("Please choose rock (r), paper (p), or scissors (s): ");
+            char player1 = char.Parse(System.Console.ReadLine());
+            char player2 = 'r';
+            if (randomNumber == 1)
+                player2 = 'r';
+            if (randomNumber == 2)
+                player2 = 'p';
+            if (randomNumber == 3)
+                player2 = 's';
+            System.Console.WriteLine("The computer chose: " + player2);
+            if (player1 == player2)
+                System.Console.WriteLine("Its a tie!");
+            else if (player1 == 'r' && player2 == 'p')
+                System.Console.WriteLine("You Lose!");
+
+            else if (player1 == 'r' && player2 == 's')
+                System.Console.WriteLine("You Win!");
+
+            else if (player1 == 'p' && player2 == 'r')
+                System.Console.WriteLine("You Win!");
+
+            else if (player1 == 'p' && player2 == 's')
+                System.Console.WriteLine("You Lose!");
+
+            else if (player1 == 's' && player2 == 'p')
+                System.Console.WriteLine("You Win!");
+
+            else if (player1 == 's' && player2 == 'r')
+                System.Console.WriteLine("You Lose!");
+
+        }
+    }
+}
