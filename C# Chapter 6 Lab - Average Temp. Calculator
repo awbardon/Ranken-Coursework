@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int average = 0;
+            int difference;
+            int[] temps = new int[7];
+            System.Console.Write("Enter temp. for Day 1: ");
+            temps[0] = int.Parse(System.Console.ReadLine());
+            System.Console.Write("Enter temp. for Day 2: ");
+            temps[1] = int.Parse(System.Console.ReadLine());
+            System.Console.Write("Enter temp. for Day 3: ");
+            temps[2] = int.Parse(System.Console.ReadLine());
+            System.Console.Write("Enter temp. for Day 4: ");
+            temps[3] = int.Parse(System.Console.ReadLine());
+            System.Console.Write("Enter temp. for Day 5: ");
+            temps[4] = int.Parse(System.Console.ReadLine());
+            System.Console.Write("Enter temp. for Day 6: ");
+            temps[5] = int.Parse(System.Console.ReadLine());
+            System.Console.Write("Enter temp. for Day 7: ");
+            temps[6] = int.Parse(System.Console.ReadLine());
+
+            for (int x = 0; x < temps.Length; ++x)
+                average += temps[x];
+            average /= 7;
+            System.Console.WriteLine("The average temp. is: " + average);
+            for (int y = 0; y < temps.Length; ++y)
+            {
+                difference = 0;
+                if (temps[y] > average)
+                    difference = temps[y] - average;
+                else if (temps[y] < average)
+                    difference = average - temps[y];
+                else
+                    difference = 0;
+                
+                System.Console.WriteLine("Day " + (y + 1) + " temp. was " + temps[y] + ".  That is " + difference + " degrees off the average.");
+            }
+        }
+    }
+}
