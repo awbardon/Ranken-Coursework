@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab11
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double dinnerPrice = 10;
+            double tipRate;
+            double tip;
+            const double LOWRATE = .1;
+            const double MAXRATE = .25;
+            const double TIPSTEP = .05;
+            const double MAXDINNER = 100;
+            const double DINNERSTEP = 10;
+            System.Console.Write("Please enter minimum tip percentage: ");
+            double lowRate = double.Parse(System.Console.ReadLine());
+            System.Console.Write("Please enter maximum tip percentage: ");
+            double maxRate = double.Parse(System.Console.ReadLine());
+            System.Console.Write("Please enter maximum possible bill: ");
+            double maxDinner = double.Parse(System.Console.ReadLine());
+            System.Console.Write("Please enter minimum: ");
+            double dinnerStep = double.Parse(System.Console.ReadLine());
+
+            System.Console.Write("Price");
+            for (tipRate = lowRate; tipRate <= maxRate; tipRate += TIPSTEP)
+                System.Console.Write("{0, 8}", tipRate.ToString("F"));
+            System.Console.WriteLine("");
+            System.Console.WriteLine("--------------------------------------");
+
+            tipRate = lowRate;
+
+            while (dinnerPrice <= maxDinner)
+            {
+                System.Console.Write("{0, 8}", dinnerPrice.ToString("C"));
+                while (tipRate <= maxRate)
+                {
+                    tip = dinnerPrice * tipRate;
+                    System.Console.Write("{0, 8}", tip.ToString("F"));
+                    tipRate += TIPSTEP;
+                }
+                dinnerPrice += dinnerStep;
+                tipRate = lowRate;
+                System.Console.WriteLine();
+            }
+        }
+    }
+}
