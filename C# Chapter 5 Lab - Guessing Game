@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab15
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool firstIteration = true;
+            bool tester = false;
+            int counter = 0;
+            int num = 0;
+            int lastGuess = 0;
+            Random RNG = new Random();
+            int randomNumber;
+            randomNumber = RNG.Next(1, 11);
+            while (tester == false)
+            {
+                ++counter;
+                
+                System.Console.WriteLine("Please guess a number (1-10): ");
+                num = int.Parse(System.Console.ReadLine());
+                if (firstIteration == false)
+                {
+                    if (num < lastGuess && lastGuess < randomNumber)
+                        System.Console.WriteLine("That was a dumb guess.");
+                    if (num > lastGuess && lastGuess > randomNumber)
+                        System.Console.WriteLine("That was a dumb guess.");
+                }
+                lastGuess = num;
+                firstIteration = false;
+                if (num > randomNumber)
+                {
+                    System.Console.WriteLine("Your guess of " + num + " was too high.");
+                }
+                else if (num < randomNumber)
+                {
+                    System.Console.WriteLine("Your guess of " + num + " was too low.");
+                }
+                else
+                {
+                    System.Console.WriteLine("Your guess of " + num + " was correct!");
+                    System.Console.WriteLine("You took " + counter + " guesses.");
+                    tester = true;
+                }
+
+            }
+        }
+    }
+}
