@@ -1,0 +1,81 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace Lab2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int size1;
+            int size2;
+            string fileName1 = "movieQuote.txt";
+            string fileName2 = "movieQuote.docx";
+            FileInfo fileInfo1 = new FileInfo(fileName1);
+            size1 = fileName1.Length;
+            FileInfo fileInfo2 = new FileInfo(fileName2);
+            size2 = fileName2.Length;
+            Console.WriteLine("File size for " + fileName1 + ": " + size1 + " Bytes");
+            Console.WriteLine("File size for " + fileName2 + ": " + size2 + " Bytes");
+            Console.WriteLine("File size ratio for the two files is: " + size1 + "/" + size2 + " Bytes");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace Lab1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string fileName;
+            string directoryName = "";
+
+            while (directoryName != "end")
+            {
+                Console.Write("Enter a directory name  >> ");
+                directoryName = Console.ReadLine();
+                if (Directory.Exists(directoryName))
+                {
+                    Console.WriteLine("Directory exists");
+                    string[] fileArray = Directory.GetFiles(directoryName);
+                    for (int x = 0; x < fileArray.Length; ++x)
+                    {
+                        Console.WriteLine(fileArray[x] + " ");
+                    }
+                    Console.Write("Enter a file name >> ");
+                    fileName = Console.ReadLine();
+                    fileName = directoryName + "\\" + fileName;
+                    if (File.Exists(fileName))
+                    {
+                        Console.WriteLine("File exists");
+                        Console.WriteLine("File Created: " + File.GetCreationTime(fileName));
+                    }
+                    else
+                        Console.WriteLine("File does not exist");
+                }
+                else if(directoryName != "end")
+                    Console.WriteLine("Directory does not exist");
+            }
+        }
+    }
+}
