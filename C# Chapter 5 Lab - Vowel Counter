@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab13
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int x = 0;
+            System.Console.Write("Please enter a phrase:");
+            string string1 = System.Console.ReadLine();
+
+            for (int y = 0; y < string1.Length; ++y)
+                if (string1[y] == 'a' || string1[y] == 'A' || string1[y] == 'e' || string1[y] == 'E' || string1[y] == 'I' || string1[y] == 'i' || string1[y] == 'o' || string1[y] == 'O' || string1[y] == 'u' || string1[y] == 'U')
+                    ++x;
+
+            System.Console.WriteLine("Your phrase contains " + x + " vowels.");
+        }
+    }
+}
