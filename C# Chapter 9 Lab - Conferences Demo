@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab8
+{
+    class ConferencesClient
+    {
+        static void Main(string[] args)
+        {
+            Conference[] array1 = new Conference[3];
+
+            for(int x = 0; x<array1.Length; ++x)
+            {
+                string group;
+                string date;
+                int num;
+                System.Console.Write("Enter group name: ");
+                group = System.Console.ReadLine();
+                System.Console.Write("Enter starting date: ");
+                date = System.Console.ReadLine();
+                System.Console.Write("Enter number of attendees: ");
+                num = int.Parse(System.Console.ReadLine());
+                System.Console.WriteLine();
+                array1[x] = new Conference(group, date, num);
+            }
+            
+
+            Array.Sort(array1);
+
+            for(int x = 0; x<array1.Length; ++x)
+            {
+                System.Console.WriteLine();
+                System.Console.WriteLine("Group Name: " + array1[x].GroupName);
+                System.Console.WriteLine("Starting Date: " + array1[x].StartingDate);
+                System.Console.WriteLine("Number of Attendees: " + array1[x].NumberOfAttendees);
+            }
+        }
+    }
+}
