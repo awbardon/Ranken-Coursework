@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] zips = { 63110, 63111, 63112, 63113, 63114,
+                63115, 63116, 63117, 63118, 63119 };
+            int testZip;
+            int counter = 0;
+            System.Console.Write("Enter a zip code to test: ");
+            testZip = int.Parse(System.Console.ReadLine());
+
+            for (int x = 0; x<zips.Length; ++x)
+            {
+                if (testZip == zips[x])
+                    ++counter;
+            }
+
+            if (counter > 0)
+                System.Console.WriteLine("That zip IS in our delivery area.");
+            else
+                System.Console.WriteLine("That zip IS NOT in our delivery area.");
+        }
+    }
+}
