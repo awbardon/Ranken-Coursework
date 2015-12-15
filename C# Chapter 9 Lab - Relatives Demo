@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab9
+{
+    class RelativesList
+    {
+        static void Main(string[] args)
+        {
+            Relative[] array1 = new Relative[2];
+            
+            for(int x = 0; x < array1.Length; ++x)
+            {
+                string n;
+                string r;
+                int bm;
+                int bd;
+                int by;
+                System.Console.Write("Enter name: ");
+                n = System.Console.ReadLine();
+                System.Console.Write("Enter relationship: ");
+                r = System.Console.ReadLine();
+                System.Console.Write("Enter birth month: ");
+                bm = int.Parse(System.Console.ReadLine());
+                System.Console.Write("Enter birth day: ");
+                bd = int.Parse(System.Console.ReadLine());
+                System.Console.Write("Enter birth year: ");
+                by = int.Parse(System.Console.ReadLine());
+                System.Console.WriteLine();
+                array1[x] = new Relative(n, r, bm, bd, by);
+            }
+
+            Array.Sort(array1);
+            for (int x = 0; x < array1.Length; ++x)
+            {
+                System.Console.WriteLine("Name: " + array1[x].name);
+                System.Console.WriteLine("Relationship: " + array1[x].relationship);
+                System.Console.WriteLine("Birth Date: " + array1[x].birthMonth + "/" + array1[x].birthDay + "/" + array1[x].birthYear);
+                System.Console.WriteLine();
+            }
+        }
+    }
+}
