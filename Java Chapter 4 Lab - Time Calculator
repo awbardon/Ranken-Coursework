@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class TimeCalculator {
+	public static void main(String args[])
+	{
+		int minutes;
+		int hours;
+		int days;
+		
+		Scanner reader = new Scanner(System.in);  // Reading from System.in
+		System.out.println("Enter a number of seconds: ");
+		int x = reader.nextInt();
+		if(x >= 60)
+		{
+			minutes = x/60;
+			System.out.println("Minutes: " + minutes);
+		}
+		if(x >= 3600)
+		{
+			hours = x/3600;
+			System.out.println("Hours: " + hours);
+		}
+		if(x >= 86400)
+		{
+			days = x/86400;
+			System.out.println("Days: " + days);
+		}
+	}
+}
