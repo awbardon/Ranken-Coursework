@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class Pet {
+	private String name;
+	private String type;
+	private int age;
+	
+	public void setName(String n)
+	{
+		name = n;
+	}
+	
+	public void setType(String n)
+	{
+		type = n;
+	}
+	
+	public void setAge(int a)
+	{
+		age = a;
+	}
+	
+	public String getName()
+	{
+		return name;
+	}
+	
+	public String getType()
+	{
+		return type;
+	}
+	
+	public int getAge()
+	{
+		return age;
+	}
+	public static void main(String[] args)
+	{
+		Pet p1 = new Pet();
+		Scanner reader = new Scanner(System.in);  // Reading from System.in
+		System.out.print("Enter name: ");
+		p1.setName(reader.nextLine());
+		System.out.print("Enter type: ");
+		p1.setType(reader.nextLine());
+		System.out.print("Enter age: ");
+		p1.setAge(reader.nextInt());
+		System.out.println("Name: " + p1.getName());
+		System.out.println("Type: " + p1.getType());
+		System.out.println("Age: " + p1.getAge());
+	}
+}
