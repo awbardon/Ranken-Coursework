@@ -1,0 +1,23 @@
+public class GameWithTimeLimit extends Game { //inherits game
+	private int timeLimit; //time limit field exclusive to GameWithTimeLimit
+	
+	public GameWithTimeLimit(String s, int m, int t)
+	{
+		super(s, m); //super game constructor
+		timeLimit = t;
+	}
+	public void setTimeLimit(int s) //set time limit
+	{
+		timeLimit = s;
+	}
+	
+	public int getTimeLimit() //return time limit
+	{
+		return timeLimit;
+	}
+	
+	public String toString() //overridden toString method
+	{
+		return "Game name: " + this.getName() + "   Max number of players: " + this.getMaxPlayers() + "   Time Limit: " + timeLimit + " minutes.";
+	}
+}
