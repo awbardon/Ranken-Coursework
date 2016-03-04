@@ -1,0 +1,22 @@
+public class Area {
+	public double radius;
+	public static double getArea(double r)   //circle taking radius input
+	{
+		return Math.PI*(r * r);
+	}
+	public static double getArea(double w, double l) //rectangle taking width and length
+	{
+		return w * l;
+	}
+	public static double getArea(int height, int r) //cylinder taking radius and height
+	{
+		return Math.PI*(r * r)*height;
+	}
+	
+	public static void main(String args[])
+	{
+		System.out.println("Circle: " + getArea(4));
+		System.out.println("Rectangle: " + getArea(4.0, 5.0));
+		System.out.println("Cylinder: " + getArea(4, 5));
+	}
+}
