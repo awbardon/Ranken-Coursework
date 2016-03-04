@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class MobileService {
+	private String plan;
+	private int minutes;
+	
+	public double getCharges(String a, int x)
+	{
+		double y = 0;
+		if(a.compareTo("a") == 0 || a.compareTo("A") == 0)
+		{
+			y += 39.99;
+			if(x > 450)
+			{
+				y += ((x - 450)*.45);
+			}
+			return y;
+		}
+		if(a.compareTo("b") == 0 || a.compareTo("B") == 0)
+		{
+			y += 59.99;
+			if(x > 900)
+			{
+				y += ((x - 900)*.40);
+			}
+			return y;
+		}
+		if(a.compareTo("c") == 0 || a.compareTo("C") == 0)
+		{
+			y += 69.99;
+			return y;
+		}
+		else return -1;
+	}
+	
+	public static void main(String args[])
+	{
+		MobileService p1 = new MobileService();
+		Scanner reader = new Scanner(System.in);  // Reading from System.in
+		System.out.print("Please select package (a, b, c): ");
+		p1.plan = reader.nextLine();
+		System.out.print("Please select number of minutes used: ");
+		p1.minutes = reader.nextInt();
+		if((p1.getCharges(p1.plan, p1.minutes) == -1))
+		{
+			System.out.println("Invalid plan letter.");
+		}
+		else
+		System.out.println(p1.getCharges(p1.plan, p1.minutes));
+	}
+}
