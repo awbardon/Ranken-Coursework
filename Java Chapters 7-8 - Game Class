@@ -1,0 +1,37 @@
+public class Game {
+	private String name;  //fields
+	private int maxPlayers;
+	
+	public Game(String s, int m) //constructor
+	{
+		name = s;
+		maxPlayers = m;
+	}
+	
+	public String getName() //return name of game
+	{
+		return name;
+	}
+	
+	public int getMaxPlayers() //return max number of players for the game
+	{
+		return maxPlayers;
+	}
+	
+	public void setName(String s) //set game name
+	{
+		name = s;
+	}
+	
+	public void setMaxPlayers(int n) //set max number of players
+	{
+		maxPlayers = n;
+	}
+	
+	public String toString()  //overridden toString method displaying info about the game
+	{
+		return "Game name: " + name + "   Max number of players: " + maxPlayers;
+	}
+	
+	
+}
