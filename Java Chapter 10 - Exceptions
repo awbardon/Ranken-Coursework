@@ -1,0 +1,32 @@
+public class TestScores {
+	private double[] scores;
+	
+	public TestScores(double[] s)
+	{
+		scores = s;
+	}
+	
+	public double getAverage()
+	{
+		double average = 0;
+		for(int x = 0; x < scores.length; ++x)
+		{
+			if(scores[x] < 0)
+				throw new IllegalArgumentException("Description " + "Invalid: Negative number.");
+			if(scores[x] > 100)
+				throw new IllegalArgumentException("Description " + "Invalid: Number greater than 100.");
+			average += scores[x];
+		}
+		return (average / scores.length);
+	}
+	
+	public static void main(String args[])
+	{
+		double[] a1 = {95, 60, 101, 99};
+		double[] a2 = {95, -2, 88, 99};
+		TestScores t1 = new TestScores(a1);
+		TestScores t2 = new TestScores(a2);
+		//t1.getAverage();
+		t2.getAverage();
+	}
+}
