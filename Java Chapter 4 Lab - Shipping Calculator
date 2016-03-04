@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class ShippingCharges {
+	private int weight;
+	private int miles;
+	public ShippingCharges(int w, int m)
+	{
+		weight = w;
+		miles = m;
+	}
+	
+	public double calcShipping()
+	{
+		double x;
+		if(miles < 500)
+			x = 1;
+		else
+		{
+		x = miles/500;
+		if(miles % 500 != 0)
+			x+=1;
+		}
+		if(weight > 10)
+		{
+			return x * 4.8;
+		}
+		else if(weight > 6)
+		{
+			return x * 3.7;
+		}
+		else if(weight > 2)
+		{
+			return x * 2.2;
+		}
+		else
+		{
+			return x * 1.1;
+		}
+	}
+	
+	public static void main(String args[])
+	{
+		
+		Scanner reader = new Scanner(System.in);  // Reading from System.in
+		System.out.print("How heavy is the package?: ");
+		int w = reader.nextInt();
+		System.out.print("How far is the shipping?: ");
+		int d = reader.nextInt();
+		ShippingCharges c1 = new ShippingCharges(w, d);
+		System.out.println("$" + c1.calcShipping());
+	}
+}
