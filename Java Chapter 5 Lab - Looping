@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class Ch5Lab1 {
+	public static void main(String args[])
+	{
+		System.out.println("Enter a positive non-zero integer: ");
+		int y2 = 0;
+		Scanner reader = new Scanner(System.in);  // Reading from System.in
+		int x = reader.nextInt();
+		for(int y = 1; y <= x; y++)
+		{
+			y2+=y;
+		}
+		System.out.println(y2);
+	}
+}
