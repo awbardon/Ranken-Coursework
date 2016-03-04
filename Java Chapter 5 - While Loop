@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class GreatestAndLeast {
+	public static void main(String args[])
+	{
+		double least = 0;
+		double greatest = 0;
+		double x = 0;
+		double counter = 0;
+		while(x != -99)
+		{
+			Scanner reader = new Scanner(System.in);  // Reading from System.in
+			
+			System.out.print("Enter a number (-99 to quit): ");
+			x = reader.nextInt();
+			if(x > greatest && x != -99)
+				greatest = x;
+			if(counter == 0)
+				least = x;
+			else if(x < least && x != -99)
+				least = x;
+			++counter;
+		}
+		System.out.println("Least: " + least);
+		System.out.println("Greatest: " + greatest);
+	}
+}
