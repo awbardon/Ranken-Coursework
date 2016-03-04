@@ -1,0 +1,29 @@
+public class Essay extends GradedActivity{
+	private double gScore;
+	private double sScore;
+	private double lScore;
+	private double cScore;
+	
+	public Essay(double g, double s, double l, double c)
+	{
+		gScore = g;
+		sScore = s;
+		lScore = l;
+		cScore = c;
+	}
+	public Essay(double g)
+	{
+		gScore = g;
+	}
+	
+	public double getScore()
+	{
+		return(gScore + sScore + lScore + cScore);
+	}
+	
+	public static void main(String args[])
+	{
+		Essay e1 = new Essay(25, 15, 15, 30);
+		System.out.println("Essay score: " + e1.getScore());
+	}
+}
