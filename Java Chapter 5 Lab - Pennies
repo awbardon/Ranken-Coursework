@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Pennies {
+	public static void main(String args[])
+	{
+		System.out.print("Enter a number of days worked: ");
+		Scanner reader = new Scanner(System.in);  // Reading from System.in
+		double counter = 0;
+		double x = reader.nextDouble();
+		double y2 = 1;
+		for(int y = 1; y <= x; y++)
+		{
+			counter += y2;
+			System.out.println("Day " + y + ": $" + (y2 / 100));
+			y2*=2;
+		}
+		System.out.println("Total: $" + counter/100);
+	}
+}
