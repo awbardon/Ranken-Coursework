@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class ChargeAccount {
+	
+	public static int[] idNumbers = {5658845, 4520125, 7895122, 8777541, 8451277, 1302850, 8080152, 4562555, 5552012, 5050552, 7825877, 1250255, 1005231, 6545231, 3852085, 7576651, 7881200, 4581002};
+
+	public static boolean isValid(int x)
+	{
+		for(int y = 0; y < 18; ++y)
+		{
+			if(x == idNumbers[y])
+				return true;
+		}
+		return false;
+	}
+	
+	public static void main(String args[])
+	{
+		Scanner reader = new Scanner(System.in);  // Reading from System.in
+		System.out.print("Enter an account number: ");
+		int i = reader.nextInt();
+		if(isValid(i))
+		{
+			System.out.println("That is a valid account.");
+		}
+		else
+			System.out.println("That is an invalid account.");
+	}
+}
