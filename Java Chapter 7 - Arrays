@@ -1,0 +1,88 @@
+import java.util.Scanner;
+
+public class Payroll {
+	private static int[] employeeId = {5658845, 4520125, 7895122, 8777541, 8451277, 1302850, 7580489};
+	private static int[] hours = new int[7];
+	private static double[] payRate = new double[7];
+	private static double[] wages = new double[7];
+	
+	public static int getID(int x)
+	{
+		return employeeId[x];
+	}
+	
+	public static int getHours(int x)
+	{
+		return hours[x];
+	}
+	
+	public static double getPayRate(int x)
+	{
+		return payRate[x];
+	}
+	
+	public static double getWages(int x)
+	{
+		return wages[x];
+	}
+	
+	public static void setHours(int x, int y)
+	{
+		hours[x] = y;
+	}
+	
+	public static void setRate(int x, double y)
+	{
+		payRate[x] = y;
+	}
+	
+	public static void setWages(int x, double y)
+	{
+		wages[x] = y;
+	}
+	
+	public static double getGrossPay(int x)
+	{
+		int x2 = 0;
+		for(int y = 0; y < 7; ++y)
+		{
+			if(x == employeeId[y])
+				x2 = y;
+		}
+		return (hours[x2] * payRate[x2]);
+	}
+	
+	public static void main(String args[])
+	{
+		Scanner reader = new Scanner(System.in);  // Reading from System.in
+		for(int x = 0; x < 7; ++x)
+		{
+			int y2 = 0;
+			double y3 = 0;
+			System.out.print("Enter pay rate for employee #" + employeeId[x] + ": ");
+			y3 = reader.nextDouble();
+			if(y3 >= 6)
+			{
+				setRate(x, y3);
+				System.out.print("Enter hours for employee #" + employeeId[x] + ": ");
+				y2 = reader.nextInt();
+				if(y2 >=0)
+					setHours(x, y2);
+				else
+				{
+					System.out.println("Invalid Input");
+					--x;
+				}
+			}
+			else{
+				System.out.println("Invalid Input");
+				--x;
+			}
+		}
+		
+		for(int x = 0; x < 7; ++x)
+		{
+			System.out.println("Employee #" + employeeId[x] + ": $" + getGrossPay(x));
+		}
+	}
+}
