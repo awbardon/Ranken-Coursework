@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class Population {
+	private double startingPop;
+	private double popIncrease;
+	private double days;
+	
+	public void displayPop()
+	{
+		System.out.println("Day 1 Population: " + startingPop);
+		double x2 = startingPop;
+		for(int x = 2; x <= days; ++x)
+		{
+			System.out.println("Day " + x + " Population: " + (x2 += (x2 * (popIncrease/100))));
+		}
+	}
+	
+	public static void main(String args[])
+	{
+		Population p1 = new Population();
+		System.out.print("Enter starting population: ");
+		Scanner reader = new Scanner(System.in);  // Reading from System.in
+		p1.startingPop = reader.nextDouble();
+		if(p1.startingPop < 2)
+			System.out.println("Invalid input.");
+		else
+		{
+			System.out.print("Enter daily pop increase (1-100%): ");
+			p1.popIncrease = reader.nextDouble();
+			if(p1.popIncrease < 0)
+				System.out.println("Invalid input.");
+			else
+			{
+				System.out.print("Enter an amount of days(1-100%): ");
+				p1.days = reader.nextDouble();
+				if(p1.days < 1)
+					System.out.println("Invalid input.");
+				else
+					p1.displayPop();
+			}
+		}
+	}
+}
