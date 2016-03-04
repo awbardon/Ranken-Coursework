@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+public class LicenseExam {
+	private static char[] key = {'b', 'd', 'a', 'a', 'c', 'a', 'b', 'a', 'c', 'd', 'b', 'c', 'd', 'a', 'd', 'c', 'c', 'b', 'd', 'a'};
+	private static char[] answers;
+	
+	public static boolean passed(char[] a)
+	{
+		if(totalCorrect(a) >= 15)
+			return true;
+		return false;
+	}
+	
+	public static int totalCorrect(char[] a)
+	{
+		int total = 0;
+		for(int x = 0; x < 20; ++x)
+		{
+			if(a[x] == key[x])
+				++total;
+		}
+		return total;
+	}
+	
+	public static int totalIncorrect(char[] a)
+	{
+		return (20 - totalCorrect(a));
+	}
+	
+	public static int[] questionsMissed(char[] a)
+	{
+		int[] i = new int[totalIncorrect(a)];
+		int counter = 0;
+		for(int x = 0; x < 20; ++x)
+			if(a[x] != key[x])
+			{
+				i[counter] = (x+1);
+				++counter;
+			}
+		return i;
+	}
+	
+	public static void main(String args[])
+	{
+		char[] a = new char[20];
+		Scanner reader = new Scanner(System.in);  // Reading from System.in
+		for(int x = 0; x < 20; ++x)
+		{
+			char x2;
+			System.out.println("Question " + (x+1) + ": ");
+			x2 = reader.next(".").charAt(0);
+			a[x] = x2;
+		}
+		
+		System.out.println("Passed: " + passed(a));
+		System.out.println("Total Correct: " + totalCorrect(a));
+		System.out.println("Total Incorrect: " + totalIncorrect(a));
+		int[] a2 = questionsMissed(a);
+		System.out.println("Questions missed: ");
+		for(int i = 0; i < a2.length; ++i)
+		{
+			System.out.println(a2[i]);
+		}
+	}
+}
