@@ -1,0 +1,24 @@
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class VehicleTest2 {
+	public static void main(String args[]) throws IOException
+	{
+		System.out.print("Enter a speed: ");
+		Scanner reader = new Scanner(System.in);  // Reading from System.in
+		double x = reader.nextDouble();
+		System.out.print("Enter number of hours driven: ");
+		double x2 = reader.nextDouble();
+		Vehicle car1 = new Vehicle(x, x2);
+		File myFile = new File("VehicleInfo.txt");
+		PrintWriter outputFile = new PrintWriter(myFile);
+		for(int y = 1; y <= x2; ++y)
+		{
+			outputFile.println("Hour " + y + ":  Distance Traveled: " + car1.getDistance(x, y));
+		}
+		outputFile.close();
+		System.out.println("File Saved!");
+	}
+}
