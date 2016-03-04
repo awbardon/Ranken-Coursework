@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Payroll {
+	private double IDnumber = 1;
+	private double grossPay;
+	private double stateTax;
+	private double federalTax;
+	private double FICAw;
+	
+	public double calcNetPay()
+	{
+		return (grossPay - stateTax - federalTax - FICAw);
+	}
+	
+	public static void main(String args[])
+	{
+		Payroll p1 = new Payroll();
+		while(p1.IDnumber != 0)
+		{
+			Scanner reader = new Scanner(System.in);  // Reading from System.in
+			System.out.print("Enter ID Number: ");
+			p1.IDnumber = reader.nextDouble();
+			if(p1.IDnumber == 0)
+				break;
+			System.out.print("Enter Gross Pay: ");
+			p1.grossPay = reader.nextDouble();
+			System.out.print("Enter State Tax: ");
+			p1.stateTax = reader.nextDouble();
+			System.out.print("Enter Federal Tax: ");
+			p1.federalTax = reader.nextDouble();
+			System.out.print("Enter FICA Withholdings: ");
+			p1.FICAw = reader.nextDouble();
+		}
+	}
+}
